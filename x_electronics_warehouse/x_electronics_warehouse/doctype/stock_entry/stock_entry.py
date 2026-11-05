@@ -9,6 +9,7 @@ from frappe.utils import get_datetime
 QTY_PRECISION = Decimal("0.000001")
 VALUE_PRECISION = Decimal("0.000001")
 RATE_PRECISION = Decimal("0.000001")
+MOVING_AVERAGE = "Moving Average"
 
 
 def dec(value):
@@ -36,6 +37,11 @@ def get_balance(item, warehouse, posting_datetime=None, lock=False):
         as_dict=True,
     )
     return dec(rows[0].qty), dec(rows[0].value)
+
+
+def get_valuation_method():
+    """Read the app-wide valuation choice, defaulting to Moving Average."""
+    return frappe.db.get_single_value("Warehouse Settings", "valuation_method") or MOVING_AVERAGE
 
 
 def lock_item_warehouse(item, warehouse):
@@ -117,6 +123,8 @@ class StockEntry(Document):
 
     def on_submit(self):
         self._validate_entry()
+        if get_valuation_method() != MOVING_AVERAGE:
+            frappe.throw(_("Only Moving Average valuation is currently supported."))
         if self.posting_status == "Posted" or self.posting_key:
             frappe.throw(_("This Stock Entry has already been posted."))
         # Lock all involved item/warehouse pairs in deterministic order to avoid deadlocks.

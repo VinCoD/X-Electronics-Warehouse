@@ -1,0 +1,13 @@
+{
+  "doctype": "DocType",
+  "name": "Warehouse Settings",
+  "module": "X Electronics Warehouse",
+  "custom": 0,
+  "issingle": 1,
+  "track_changes": 1,
+  "field_order": ["valuation_method"],
+  "fields": [
+    {"fieldname": "valuation_method", "fieldtype": "Select", "label": "Valuation Method", "options": "Moving Average", "default": "Moving Average", "reqd": 1, "description": "The app currently supports Moving Average valuation."}
+  ],
+  "permissions": [{"role": "System Manager", "read": 1, "write": 1, "create": 1, "report": 1}]
+}

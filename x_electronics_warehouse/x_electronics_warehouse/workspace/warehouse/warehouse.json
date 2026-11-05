@@ -11,7 +11,7 @@
   "for_user": "",
   "parent_page": "",
   "sequence_id": 1,
-  "content": "[{\"id\":\"wms-header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Warehouse operations</b></span>\",\"col\":12}},{\"id\":\"wms-new-entry\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Stock Entry\",\"col\":3}},{\"id\":\"wms-items\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Items\",\"col\":3}},{\"id\":\"wms-warehouses\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Warehouses\",\"col\":3}},{\"id\":\"wms-balance\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Balance\",\"col\":3}},{\"id\":\"wms-reports\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports</b></span>\",\"col\":12}},{\"id\":\"wms-ledger\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Ledger\",\"col\":3}}]",
+  "content": "[{\"id\":\"wms-header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Warehouse operations</b></span>\",\"col\":12}},{\"id\":\"wms-new-entry\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Stock Entry\",\"col\":3}},{\"id\":\"wms-items\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Items\",\"col\":3}},{\"id\":\"wms-warehouses\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Warehouses\",\"col\":3}},{\"id\":\"wms-balance\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Balance\",\"col\":3}},{\"id\":\"wms-reports\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports</b></span>\",\"col\":12}},{\"id\":\"wms-ledger\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Ledger\",\"col\":3}},{\"id\":\"wms-settings-header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Settings</b></span>\",\"col\":12}},{\"id\":\"wms-settings\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Warehouse Settings\",\"col\":3}}]",
   "charts": [],
   "number_cards": [],
   "quick_lists": [],
@@ -22,7 +22,8 @@
     {"label": "Items", "link_to": "Item", "type": "DocType"},
     {"label": "Warehouses", "link_to": "Warehouse", "type": "DocType"},
     {"label": "Stock Balance", "link_to": "Stock Balance", "type": "Report"},
-    {"label": "Stock Ledger", "link_to": "Stock Ledger", "type": "Report"}
+    {"label": "Stock Ledger", "link_to": "Stock Ledger", "type": "Report"},
+    {"label": "Warehouse Settings", "link_to": "Warehouse Settings", "type": "DocType"}
   ],
   "links": [
     {"type": "Card Break", "label": "Stock Operations", "hidden": 0, "link_count": 0, "onboard": 0, "is_query_report": 0},
@@ -33,6 +34,8 @@
     {"type": "Link", "label": "Warehouses", "link_to": "Warehouse", "link_type": "DocType", "hidden": 0, "link_count": 0, "onboard": 0, "dependencies": "", "is_query_report": 0},
     {"type": "Card Break", "label": "Reports", "hidden": 0, "link_count": 0, "onboard": 0, "is_query_report": 0},
     {"type": "Link", "label": "Stock Ledger", "link_to": "Stock Ledger", "link_type": "Report", "hidden": 0, "link_count": 0, "onboard": 0, "dependencies": "", "is_query_report": 1},
-    {"type": "Link", "label": "Stock Balance", "link_to": "Stock Balance", "link_type": "Report", "hidden": 0, "link_count": 0, "onboard": 0, "dependencies": "", "is_query_report": 1}
+    {"type": "Link", "label": "Stock Balance", "link_to": "Stock Balance", "link_type": "Report", "hidden": 0, "link_count": 0, "onboard": 0, "dependencies": "", "is_query_report": 1},
+    {"type": "Card Break", "label": "Settings", "hidden": 0, "link_count": 0, "onboard": 0, "is_query_report": 0},
+    {"type": "Link", "label": "Warehouse Settings", "link_to": "Warehouse Settings", "link_type": "DocType", "hidden": 0, "link_count": 0, "onboard": 0, "dependencies": "", "is_query_report": 0}
   ]
 }

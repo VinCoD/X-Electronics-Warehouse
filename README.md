@@ -29,6 +29,8 @@ bench --site your-site run-tests --app x_electronics_warehouse
 
 ## Stock model
 
+Valuation is configured once for the app in the single-record `Warehouse Settings` DocType, linked from the Warehouse workspace. The assessment build supports Moving Average only; Items do not have individual valuation methods.
+
 `Stock Ledger Entry` is an immutable, non-submittable DocType: one row per item/warehouse movement. It stores signed quantity and value deltas plus the resulting balance and valuation rate. There is no mutable Bin or cached balance document; balances are derived by aggregating ledger rows.
 
 `Stock Entry` is the user-facing submitted transaction. Receipt accepts quantity and unit cost, consume uses the current moving average, and transfer creates a paired outgoing/incoming ledger movement at the source warehouse's current moving average. All rows for one Stock Entry are inserted in one database transaction and the submitted document state prevents duplicate posting.
@@ -41,7 +43,8 @@ The ledger balance calculation is one parameterized SQL aggregate over the relev
 
 ## DocTypes and reports
 
-- Item: SKU, description, stock UOM, moving-average valuation.
+- Item: SKU, description, and stock UOM.
+- Warehouse Settings: app-wide valuation configuration (Moving Average).
 - Warehouse: nested set tree with parent and group flags.
 - Stock Ledger Entry: stateless immutable movement and running valuation snapshot.
 - Stock Entry: receipt, consume or transfer with child item lines.

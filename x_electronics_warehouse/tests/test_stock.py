@@ -1,7 +1,7 @@
 import frappe
 from frappe.tests.utils import FrappeTestCase
 
-from x_electronics_warehouse.x_electronics_warehouse.doctype.stock_entry.stock_entry import get_balance
+from x_electronics_warehouse.x_electronics_warehouse.doctype.stock_entry.stock_entry import get_balance, get_valuation_method
 from x_electronics_warehouse.x_electronics_warehouse.report.stock_balance.stock_balance import execute as stock_balance
 from x_electronics_warehouse.x_electronics_warehouse.report.stock_ledger.stock_ledger import execute as stock_ledger
 
@@ -15,6 +15,17 @@ class TestWarehouseStock(FrappeTestCase):
         if not frappe.db.exists("Warehouse", "Test Store"):
             frappe.get_doc({"doctype": "Warehouse", "warehouse_name": "Test Store", "parent_warehouse": "Test Root", "is_group": 0}).insert()
         cls.warehouse = "Test Store"
+
+    def test_warehouse_settings_use_moving_average(self):
+        settings = frappe.get_single("Warehouse Settings")
+        self.assertEqual(settings.valuation_method, "Moving Average")
+        self.assertEqual(get_valuation_method(), "Moving Average")
+
+    def test_warehouse_settings_reject_unsupported_methods(self):
+        settings = frappe.get_single("Warehouse Settings")
+        settings.valuation_method = "FIFO"
+        with self.assertRaises(frappe.ValidationError):
+            settings.save()
 
     def make_item(self):
         code = frappe.generate_hash(length=10)
