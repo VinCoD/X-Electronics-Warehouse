@@ -1,0 +1,7 @@
+*
+!.gitignore
+!README.md
+!setup_wsl.sh
+!normalize_apps.py
+!configure_mariadb_root.sh
+!setup_site.sh
