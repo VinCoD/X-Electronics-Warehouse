@@ -1,0 +1,10 @@
+{
+  "doctype": "Report",
+  "name": "Stock Ledger",
+  "module": "X Electronics Warehouse",
+  "report_name": "Stock Ledger",
+  "ref_doctype": "Stock Ledger Entry",
+  "report_type": "Query Report",
+  "is_standard": "Yes",
+  "roles": [{"role": "System Manager"}]
+}
