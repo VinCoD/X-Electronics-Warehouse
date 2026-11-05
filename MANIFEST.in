@@ -1,0 +1,1 @@
+recursive-include x_electronics_warehouse *.json *.js *.csv *.txt

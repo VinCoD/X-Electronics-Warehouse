@@ -1,0 +1,28 @@
+{
+  "doctype": "DocType",
+  "name": "Stock Entry",
+  "module": "X Electronics Warehouse",
+  "custom": 0,
+  "is_submittable": 1,
+  "track_changes": 1,
+  "autoname": "naming_series:",
+  "naming_rule": "By Naming Series field",
+  "engine": "InnoDB",
+  "field_order": ["naming_series", "stock_entry_type", "posting_datetime", "from_warehouse", "to_warehouse", "items", "remarks", "posting_status", "posting_key"],
+  "fields": [
+    {"fieldname": "naming_series", "fieldtype": "Select", "label": "Series", "options": "XSE-.YYYY.-.#####", "default": "XSE-.YYYY.-.#####", "reqd": 1, "hidden": 1},
+    {"fieldname": "stock_entry_type", "fieldtype": "Select", "label": "Purpose", "options": "Receipt\nConsume\nTransfer", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "posting_datetime", "fieldtype": "Datetime", "label": "Posting Date and Time", "default": "Now", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "from_warehouse", "fieldtype": "Link", "label": "From Warehouse", "options": "Warehouse", "depends_on": "eval:doc.stock_entry_type=='Consume' || doc.stock_entry_type=='Transfer'", "mandatory_depends_on": "eval:doc.stock_entry_type=='Consume' || doc.stock_entry_type=='Transfer'"},
+    {"fieldname": "to_warehouse", "fieldtype": "Link", "label": "To Warehouse", "options": "Warehouse", "depends_on": "eval:doc.stock_entry_type=='Receipt' || doc.stock_entry_type=='Transfer'", "mandatory_depends_on": "eval:doc.stock_entry_type=='Receipt' || doc.stock_entry_type=='Transfer'"},
+    {"fieldname": "items", "fieldtype": "Table", "label": "Items", "options": "Stock Entry Item", "reqd": 1},
+    {"fieldname": "remarks", "fieldtype": "Small Text", "label": "Remarks"},
+    {"fieldname": "posting_status", "fieldtype": "Select", "label": "Posting Status", "options": "\nPosted", "read_only": 1, "no_copy": 1},
+    {"fieldname": "posting_key", "fieldtype": "Data", "label": "Posting Key", "read_only": 1, "no_copy": 1, "unique": 1, "hidden": 1}
+  ],
+  "permissions": [{"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1, "submit": 1, "cancel": 0, "report": 1, "export": 1, "print": 1, "email": 1}],
+  "links": [],
+  "actions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

@@ -1,0 +1,26 @@
+{
+  "doctype": "DocType",
+  "name": "Warehouse",
+  "module": "X Electronics Warehouse",
+  "custom": 0,
+  "is_tree": 1,
+  "nsm_parent_field": "parent_warehouse",
+  "engine": "InnoDB",
+  "field_order": ["warehouse_name", "parent_warehouse", "old_parent", "is_group", "disabled", "lft", "rgt"],
+  "fields": [
+    {"fieldname": "warehouse_name", "fieldtype": "Data", "label": "Warehouse Name", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "parent_warehouse", "fieldtype": "Link", "label": "Parent Warehouse", "options": "Warehouse"},
+    {"fieldname": "old_parent", "fieldtype": "Link", "label": "Old Parent", "options": "Warehouse", "hidden": 1, "read_only": 1, "no_copy": 1},
+    {"fieldname": "is_group", "fieldtype": "Check", "label": "Is Group", "default": "0"},
+    {"fieldname": "disabled", "fieldtype": "Check", "label": "Disabled", "default": "0"},
+    {"fieldname": "lft", "fieldtype": "Int", "label": "Left", "hidden": 1, "read_only": 1, "no_copy": 1},
+    {"fieldname": "rgt", "fieldtype": "Int", "label": "Right", "hidden": 1, "read_only": 1, "no_copy": 1}
+  ],
+  "permissions": [{"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1, "report": 1, "export": 1, "print": 1, "email": 1}],
+  "autoname": "field:warehouse_name",
+  "title_field": "warehouse_name",
+  "search_fields": "warehouse_name",
+  "sort_field": "lft",
+  "sort_order": "ASC",
+  "track_changes": 1
+}
