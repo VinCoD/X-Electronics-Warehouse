@@ -54,27 +54,35 @@ The WMS workspace is named **X Electronics WMS** and lives at `/app/x-electronic
 
 ## Screenshots
 
-The screenshots below show the running WMS and its main lists and reports.
+The screenshots below show the running WMS workspace, master data, stock transactions, reports, and valuation setting.
 
 ### WMS workspace
 
-![X Electronics WMS workspace](docs/screenshots/workspace.png)
+![X Electronics WMS workspace](docs/screenshots/clipboard-workspace.png)
 
 ### Items
 
-![Items list](docs/screenshots/items.png)
+![Items list](docs/screenshots/clipboard-items.png)
+
+### Warehouses
+
+![Warehouses list](docs/screenshots/clipboard-warehouses.png)
 
 ### Stock entries
 
-![Stock Entry list](docs/screenshots/stock-entries.png)
+![Stock Entry list](docs/screenshots/clipboard-stock-entries.png)
 
 ### Stock balance
 
-![Stock Balance report](docs/screenshots/stock-balance.png)
+![Stock Balance report](docs/screenshots/clipboard-stock-balance.png)
 
 ### Stock ledger
 
-![Stock Ledger report](docs/screenshots/stock-ledger.png)
+![Stock Ledger report](docs/screenshots/clipboard-stock-ledger.png)
+
+### Warehouse settings
+
+![Warehouse Settings with Moving Average valuation selected](docs/screenshots/clipboard-warehouse-settings.png)
 
 ## Tests
 
