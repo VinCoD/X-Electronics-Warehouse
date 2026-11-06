@@ -1,8 +1,8 @@
 {
   "doctype": "Workspace",
-  "name": "Warehouse",
-  "label": "Warehouse",
-  "title": "Warehouse",
+  "name": "X Electronics WMS",
+  "label": "X Electronics WMS",
+  "title": "X Electronics WMS",
   "module": "X Electronics Warehouse",
   "icon": "home",
   "public": 1,

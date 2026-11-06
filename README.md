@@ -29,7 +29,7 @@ bench --site your-site run-tests --app x_electronics_warehouse
 
 ## Stock model
 
-Valuation is configured once for the app in the single-record `Warehouse Settings` DocType, linked from the Warehouse workspace. The assessment build supports Moving Average only; Items do not have individual valuation methods.
+Valuation is configured once for the app in the single-record `Warehouse Settings` DocType, linked from the **X Electronics WMS** workspace (`/app/x-electronics-wms`). The assessment build supports Moving Average only; Items do not have individual valuation methods.
 
 `Stock Ledger Entry` is an immutable, non-submittable DocType: one row per item/warehouse movement. It stores signed quantity and value deltas plus the resulting balance and valuation rate. There is no mutable Bin or cached balance document; balances are derived by aggregating ledger rows.
 
@@ -49,6 +49,32 @@ The ledger balance calculation is one parameterized SQL aggregate over the relev
 - Stock Ledger Entry: stateless immutable movement and running valuation snapshot.
 - Stock Entry: receipt, consume or transfer with child item lines.
 - Stock Ledger and Stock Balance: query reports.
+
+The WMS workspace is named **X Electronics WMS** and lives at `/app/x-electronics-wms`. This keeps it separate from the **Warehouse** DocType route at `/app/warehouse`, so the Warehouses shortcut opens the warehouse tree/list instead of routing back to the workspace. Existing sites get this rename automatically when you run `bench migrate`.
+
+## Screenshots
+
+The screenshots below show the running WMS and its main lists and reports.
+
+### WMS workspace
+
+![X Electronics WMS workspace](docs/screenshots/workspace.png)
+
+### Items
+
+![Items list](docs/screenshots/items.png)
+
+### Stock entries
+
+![Stock Entry list](docs/screenshots/stock-entries.png)
+
+### Stock balance
+
+![Stock Balance report](docs/screenshots/stock-balance.png)
+
+### Stock ledger
+
+![Stock Ledger report](docs/screenshots/stock-ledger.png)
 
 ## Tests
 

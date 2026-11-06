@@ -1,0 +1,5 @@
+
+[pre_model_sync]
+x_electronics_warehouse.patches.ensure_workspace_route
+
+[post_model_sync]
